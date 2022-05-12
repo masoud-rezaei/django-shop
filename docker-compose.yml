@@ -11,15 +11,15 @@ services:
 
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    command: python /code/manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
     ports:
       - "8000:8000"
-    environment:
-      - "DJANGO_SECRET_KEY=django-insecure-0adm+(!$g8w)34m%@+-rb*fs1yl0_gti&)pj5-i(wkcsxglxmm"
+    environment:     
       - POSTGRES_NAME=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     depends_on:
       - db
+      

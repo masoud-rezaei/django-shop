@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = "django-insecure-0adm+(!$g8w)34m%@+-rb*fs1yl0_gti&)pj5-i(wkcsxglxmm"
+SECRET_KEY="django-insecure-0adm+(!$g8w)34m%@+-rb*fs1yl0_gti&)pj5-i(wkcsxglxmm"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # local
     'shop',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -67,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processors.cart',
             ],
         },
     },
@@ -134,3 +136,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # media
 MEDIA_URL = '/media/'
 MEDAI_ROOT = os.path.join(BASE_DIR, 'media/')
+
+# id cart sessions
+
+CART_SESSION_ID = 'cart'
+

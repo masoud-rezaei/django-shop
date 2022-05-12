@@ -1,2 +1,5 @@
+docker-compose-prod.yml
+db.sqlite3
 .env
+
 
