@@ -1,0 +1,23 @@
+{% extends 'shop/base.html' %}
+
+{% block title %}
+  Pay by creadit card
+{% endblock title %}
+{% block content %}
+    <h1>Pay by credit card</h1>
+    <form id="payment" method="post">
+    
+      <label for="card-number">Card Number</label>
+      <div id="card-number" class="field"></div>
+
+      <label for="cvv">CVV</label>
+      <div id="cvv" class="field"></div>
+
+      <label for="expiration-date">Expiration Date</label>
+      <div id="expiration-date" class="field"></div>
+ 
+      <input type="hidden" id="nonce" name="payment_method_nonce" value="">
+      {% csrf_token %}
+      <input type="submit" value="Pay">
+ </form>
+{% endblock content %}

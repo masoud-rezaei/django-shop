@@ -1,17 +1,24 @@
 version: '3.9'
 services:
+
   db:
+    restart: unless-stopped
+    container_name: database
     image: postgres
     volumes:
-      - ./data/db:/var/lib/postgresql/data
+      - db_data:/var/lib/postgresql/data  #./data/db
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
 
   web:
-    build: .
-    command: python /code/manage.py runserver 0.0.0.0:8000
+    container_name: backend
+    build:
+      context: .
+    command: >
+        sh -c "python3 manage.py migrate &&
+               python3 manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/code
     ports:
@@ -20,6 +27,43 @@ services:
       - POSTGRES_NAME=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-    depends_on:
+    depends_on:  
       - db
+
+  rabbit:
+    restart: unless-stopped
+    container_name: rabbitmq
+    hostname: rabbit
+    image: rabbitmq:3-management-alpine
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=mypass
+    #ports:
+    #  - "5672:5672"
+    #  - "15672:15672"
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq  
+
+  celery:
+    container_name: celery
+    build:
+      context: .
+    command: celery -A config worker -l info
+    volumes:
+      - .:/test_celery 
+    depends_on:
+      - rabbit
       
+      
+    #environment:
+    #  rabbitmq_uri: amqp://127.0.0.1:5672
+    #  - CELERY_BROKER=amqp://admin:password@rabbitmq:5672//  
+      
+volumes:
+  db_data:
+  rabbitmq_data:
+
+
+
+   
+

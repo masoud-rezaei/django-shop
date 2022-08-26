@@ -1,6 +1,10 @@
 Django
+reportlab
 psycopg2-binary
 django-crispy-forms
 django-allauth
 Pillow
 environs[django]
+az-iranian-bank-gateways 
+celery
+amqp

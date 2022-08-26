@@ -17,12 +17,17 @@ from django.contrib import admin
 from django.urls import path ,include
 from django.conf import settings
 from django.conf.urls.static import static
+from azbankgateways.urls import az_bank_gateways_urls 
+from payments.views import callback_gateway_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('bankgateways/', az_bank_gateways_urls()),
+    path('callback-gateways/',callback_gateway_view ,name='callback-gateways'),
     path('cart/', include('cart.urls', namespace='cart')),
     path('orders/',include('orders.urls', namespace = 'orders')),
     path('', include('shop.urls', namespace='shop')),
+    path('payments/', include('payments.urls', namespace='payments')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,

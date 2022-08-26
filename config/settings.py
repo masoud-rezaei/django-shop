@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     'shop',
     'cart',
     'orders',
+    'payments',
+    # 3d-party
+    'azbankgateways',
 ]
 
 MIDDLEWARE = [
@@ -88,7 +91,7 @@ DATABASES = {
         'USER': os.environ.get('POSTGRES_USER'),
         'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
         'HOST': 'db',
-        'PORT': 5432,
+        'PORT': 5432
     }
 }
 
@@ -128,7 +131,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -141,4 +144,35 @@ MEDAI_ROOT = os.path.join(BASE_DIR, 'media/')
 # id cart sessions
 
 CART_SESSION_ID = 'cart'
+#
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#rabbitmq 
+RABBITMQ = {
+    "PROTOCOL": "amqp", # in prod change with "amqps"
+    "HOST": os.getenv("RABBITMQ_HOST", "rabbit"),
+    "PORT": os.getenv("RABBITMQ_PORT", 5672),
+    "USER": os.getenv("RABBITMQ_USER", "admin"),
+    "PASSWORD": os.getenv("RABBITMQ_PASSWORD", "mypass"),
+}
 
+#CELERY_BROKER_URL=amqp://guest:guest@rabbitmq3:5672/
+CELERY_BROKER_URL = f"{RABBITMQ['PROTOCOL']}://{RABBITMQ['USER']}:{RABBITMQ['PASSWORD']}@{RABBITMQ['HOST']}:{RABBITMQ['PORT']}"
+#bank 
+AZ_IRANIAN_BANK_GATEWAYS = {
+   'GATEWAYS': {
+       
+       'IDPAY': {
+           'MERCHANT_CODE': '995158df-0589-44e3-96c8-18b60d7e8655',
+           'METHOD': 'POST',  # GET or POST
+           'X_SANDBOX': 1,  # 0 disable, 1 active
+       },
+   },
+   'IS_SAMPLE_FORM_ENABLE': True, # اختیاری و پیش فرض غیر فعال است
+   'DEFAULT': 'IDPAY',
+   'CURRENCY': 'IRR', # اختیاری
+   'TRACKING_CODE_QUERY_PARAM': 'tc', # اختیاری
+   'TRACKING_CODE_LENGTH': 16, # اختیاری
+   'SETTING_VALUE_READER_CLASS': 'azbankgateways.readers.DefaultReader', # اختیاری
+   'BANK_PRIORITIES': [
+   ], # اختیاری
+}
