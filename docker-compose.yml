@@ -36,13 +36,13 @@ services:
     hostname: rabbit
     image: rabbitmq:3-management-alpine
     environment:
-      - RABBITMQ_DEFAULT_USER=admin
-      - RABBITMQ_DEFAULT_PASS=mypass
+      - RABBITMQ_DEFAULT_USER=celeryuser
+      - RABBITMQ_DEFAULT_PASS=celery
     #ports:
-    #  - "5672:5672"
-    #  - "15672:15672"
+     #  - "5672:5672"
+       #- "15672:15672"
     volumes:
-      - rabbitmq_data:/var/lib/rabbitmq  
+      - rabbitmq_data:/var/lib/rabbitmq 
 
   celery:
     container_name: celery

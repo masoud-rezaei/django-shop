@@ -26,6 +26,7 @@ urlpatterns = [
     path('callback-gateways/',callback_gateway_view ,name='callback-gateways'),
     path('cart/', include('cart.urls', namespace='cart')),
     path('orders/',include('orders.urls', namespace = 'orders')),
+    path('coupons/',include('coupons.urls', namespace = 'coupons')),
     path('', include('shop.urls', namespace='shop')),
     path('payments/', include('payments.urls', namespace='payments')),
 ]

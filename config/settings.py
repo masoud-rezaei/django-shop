@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'cart',
     'orders',
     'payments',
+    'coupons',
     # 3d-party
     'azbankgateways',
 ]
@@ -147,20 +148,20 @@ CART_SESSION_ID = 'cart'
 #
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #rabbitmq 
+'''
 RABBITMQ = {
     "PROTOCOL": "amqp", # in prod change with "amqps"
     "HOST": os.getenv("RABBITMQ_HOST", "rabbit"),
     "PORT": os.getenv("RABBITMQ_PORT", 5672),
-    "USER": os.getenv("RABBITMQ_USER", "admin"),
-    "PASSWORD": os.getenv("RABBITMQ_PASSWORD", "mypass"),
-}
-
-#CELERY_BROKER_URL=amqp://guest:guest@rabbitmq3:5672/
-CELERY_BROKER_URL = f"{RABBITMQ['PROTOCOL']}://{RABBITMQ['USER']}:{RABBITMQ['PASSWORD']}@{RABBITMQ['HOST']}:{RABBITMQ['PORT']}"
+    "USER": os.getenv("RABBITMQ_USER", "celeryuser"),
+    "PASSWORD": os.getenv("RABBITMQ_PASSWORD", "celery"),
+} 
+'''
+CELERY_BROKER_URL='amqp://celeryuser:celery@rabbit:5672/celeryvhost'
+#CELERY_BROKER_URL = f"{RABBITMQ['PROTOCOL']}://{RABBITMQ['USER']}: {RABBITMQ['PASSWORD']}@{RABBITMQ['HOST']}:{RABBITMQ['PORT']}"
 #bank 
 AZ_IRANIAN_BANK_GATEWAYS = {
-   'GATEWAYS': {
-       
+   'GATEWAYS': {       
        'IDPAY': {
            'MERCHANT_CODE': '995158df-0589-44e3-96c8-18b60d7e8655',
            'METHOD': 'POST',  # GET or POST
