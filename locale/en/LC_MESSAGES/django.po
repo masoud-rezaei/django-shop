@@ -1,0 +1,192 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-31 12:54+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: cart/forms.py:9 cart/templates/cart/detail.html:14
+msgid "Quantity"
+msgstr ""
+
+#: cart/templates/cart/detail.html:5 cart/templates/cart/detail.html:8
+msgid "Your shopping cart"
+msgstr ""
+
+#: cart/templates/cart/detail.html:12
+msgid "Image"
+msgstr ""
+
+#: cart/templates/cart/detail.html:13
+msgid "Product"
+msgstr ""
+
+#: cart/templates/cart/detail.html:15
+msgid "Remove"
+msgstr ""
+
+#: cart/templates/cart/detail.html:16
+msgid "Unit price"
+msgstr ""
+
+#: cart/templates/cart/detail.html:17
+msgid "Price"
+msgstr ""
+
+#: cart/templates/cart/detail.html:51
+msgid "Subtotal"
+msgstr ""
+
+#: cart/templates/cart/detail.html:56
+#, python-format
+msgid ""
+"\n"
+"                    <td>\n"
+"                        \"%(code)s\" coupon\n"
+"                        (%(discount)s%% off)\n"
+"                    </td>\n"
+"                    "
+msgstr ""
+
+#: cart/templates/cart/detail.html:67
+msgid "Total"
+msgstr ""
+
+#: cart/templates/cart/detail.html:74
+msgid "Apply a coupon"
+msgstr ""
+
+#: cart/templates/cart/detail.html:82
+msgid "Continue shopping"
+msgstr ""
+
+#: cart/templates/cart/detail.html:83
+msgid "Checkout"
+msgstr ""
+
+#: config/settings.py:128
+msgid "English"
+msgstr ""
+
+#: config/settings.py:129
+msgid "Farsi"
+msgstr ""
+
+#: config/urls.py:26
+msgid "admin/"
+msgstr ""
+
+#: config/urls.py:29
+msgid "cart/"
+msgstr ""
+
+#: config/urls.py:30
+msgid "orders/"
+msgstr ""
+
+#: config/urls.py:31
+msgid "coupons/"
+msgstr ""
+
+#: coupons/forms.py:6
+msgid "coupon"
+msgstr ""
+
+#: payments/templates/payments/canceled.html:4
+msgid "Payment canceled "
+msgstr ""
+
+#: payments/templates/payments/canceled.html:8
+msgid "Your payment has not been processed"
+msgstr ""
+
+#: payments/templates/payments/canceled.html:9
+msgid "There was a problem processing your payment"
+msgstr ""
+
+#: payments/templates/payments/done.html:3
+msgid "Payment successful"
+msgstr ""
+
+#: payments/templates/payments/done.html:5
+msgid "Your payment was successful"
+msgstr ""
+
+#: payments/templates/payments/done.html:6
+msgid "Your payment has been processed successfully"
+msgstr ""
+
+#: payments/templates/payments/process.html:4
+msgid "Pay by creadit card"
+msgstr ""
+
+#: payments/templates/payments/process.html:7
+msgid "Pay by credit card"
+msgstr ""
+
+#: payments/templates/payments/process.html:10
+msgid "Card Number"
+msgstr ""
+
+#: payments/templates/payments/process.html:16
+msgid "Expiration Date"
+msgstr ""
+
+#: shop/templates/shop/base.html:9
+msgid " My shop"
+msgstr ""
+
+#: shop/templates/shop/base.html:21
+msgid "My shop"
+msgstr ""
+
+#: shop/templates/shop/base.html:26
+msgid "Language"
+msgstr ""
+
+#: shop/templates/shop/base.html:43
+msgid "Your cart"
+msgstr ""
+
+#: shop/templates/shop/base.html:45
+#, python-format
+msgid ""
+"\n"
+"                               %(items)s item, $%(total)s\n"
+"                             "
+msgid_plural ""
+"  \n"
+"                               %(items)s items, $%(total)s\n"
+"                             "
+msgstr[0] ""
+msgstr[1] ""
+
+#: shop/templates/shop/base.html:52
+msgid "Your cart is empty."
+msgstr ""
+
+#: shop/templates/shop/product/detail.html:20
+msgid "Add to cart"
+msgstr ""
+
+#: shop/templates/shop/product/list.html:8
+#: shop/templates/shop/product/list.html:30
+msgid "Products"
+msgstr ""
+
+#: shop/templates/shop/product/list.html:13
+msgid "Categories"
+msgstr ""

@@ -8,3 +8,6 @@ environs[django]
 az-iranian-bank-gateways 
 celery
 amqp
+django-rosetta 
+django-parler
+django-localflavor
