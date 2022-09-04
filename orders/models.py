@@ -18,7 +18,6 @@ class Order(models.Model):
     updated = models.DateTimeField(auto_now = True)
     paid = models.BooleanField(default=False)
     bank_getways_id = models.CharField(max_length=150, blank=True)
-    # ...
     coupon = models.ForeignKey(Coupon,
                                related_name='orders',
                                null=True,

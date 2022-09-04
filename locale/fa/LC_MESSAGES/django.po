@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-31 12:54+0000\n"
-"PO-Revision-Date: 2022-08-31 13:03+0000\n"
+"POT-Creation-Date: 2022-09-04 11:43+0000\n"
+"PO-Revision-Date: 2022-09-04 11:44+0000\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,39 +19,43 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.9.8\n"
 
-#: cart/forms.py:9 cart/templates/cart/detail.html:14
+#: cart/forms.py:9 cart/templates/cart/detail.html:16
 msgid "Quantity"
-msgstr "مقدار"
+msgstr "میزان "
 
-#: cart/templates/cart/detail.html:5 cart/templates/cart/detail.html:8
+#: cart/templates/cart/detail.html:6 cart/templates/cart/detail.html:10
 msgid "Your shopping cart"
-msgstr "سبد خرید تان "
+msgstr "سبد خرید شما "
 
-#: cart/templates/cart/detail.html:12
+#: cart/templates/cart/detail.html:14
 msgid "Image"
-msgstr "عکس"
+msgstr "تصویر "
 
-#: cart/templates/cart/detail.html:13
+#: cart/templates/cart/detail.html:15
 msgid "Product"
 msgstr "محصول "
 
-#: cart/templates/cart/detail.html:15
+#: cart/templates/cart/detail.html:17 cart/templates/cart/detail.html:42
 msgid "Remove"
 msgstr "حذف "
 
-#: cart/templates/cart/detail.html:16
+#: cart/templates/cart/detail.html:18
 msgid "Unit price"
 msgstr "قیمت واحد "
 
-#: cart/templates/cart/detail.html:17
+#: cart/templates/cart/detail.html:19
 msgid "Price"
 msgstr "قیمت "
 
-#: cart/templates/cart/detail.html:51
-msgid "Subtotal"
-msgstr "جزئیات"
+#: cart/templates/cart/detail.html:36
+msgid "Update"
+msgstr "بروزرسانی "
 
-#: cart/templates/cart/detail.html:56
+#: cart/templates/cart/detail.html:53
+msgid "Subtotal"
+msgstr "زیر مجموع "
+
+#: cart/templates/cart/detail.html:58
 #, python-format
 msgid ""
 "\n"
@@ -62,55 +66,67 @@ msgid ""
 "                    "
 msgstr ""
 "\n"
-"بن "
+"<td>\n"
+"\"%(code)s\" بن \n"
+"(%(discount)s%% تخفیف)\n"
+"</td>"
 
-#: cart/templates/cart/detail.html:67
+#: cart/templates/cart/detail.html:69
 msgid "Total"
 msgstr "مجموع"
 
-#: cart/templates/cart/detail.html:74
-msgid "Apply a coupon"
-msgstr "استفاده از بن تخفیف "
+#: cart/templates/cart/detail.html:80
+#: shop/templates/shop/product/detail.html:25
+msgid "People who bought this also bought"
+msgstr "دیگران این ها را نیز خریده اند "
 
-#: cart/templates/cart/detail.html:82
+#: cart/templates/cart/detail.html:94
+msgid "Apply a coupon"
+msgstr "استفاده از بن "
+
+#: cart/templates/cart/detail.html:98
+msgid "Apply"
+msgstr "استفاده "
+
+#: cart/templates/cart/detail.html:103
 msgid "Continue shopping"
 msgstr "ادامه خرید "
 
-#: cart/templates/cart/detail.html:83
+#: cart/templates/cart/detail.html:105
 msgid "Checkout"
-msgstr "بررسی "
+msgstr "یررسی "
 
 #: config/settings.py:128
 msgid "English"
-msgstr "انگلیسی"
+msgstr "انگلیسی "
 
 #: config/settings.py:129
 msgid "Farsi"
-msgstr "فارسی"
+msgstr "فارسی "
 
 #: config/urls.py:26
 msgid "admin/"
-msgstr "ادمین"
+msgstr "/ادمین"
 
 #: config/urls.py:29
 msgid "cart/"
-msgstr "سبد "
+msgstr "/سبد "
 
 #: config/urls.py:30
 msgid "orders/"
-msgstr "دستورات "
+msgstr "/دستورات "
 
 #: config/urls.py:31
 msgid "coupons/"
-msgstr "بن تخفیف "
+msgstr "/بن ها "
 
 #: coupons/forms.py:6
 msgid "coupon"
-msgstr "بن تخفیف "
+msgstr "بن"
 
 #: payments/templates/payments/canceled.html:4
 msgid "Payment canceled "
-msgstr "پرداخت لغو گردید "
+msgstr "پرداخت لغو گردید"
 
 #: payments/templates/payments/canceled.html:8
 msgid "Your payment has not been processed"
@@ -118,35 +134,35 @@ msgstr "پرداخت شما پردازش نشده است"
 
 #: payments/templates/payments/canceled.html:9
 msgid "There was a problem processing your payment"
-msgstr "مشکلی در پردازش پرداخت وجود دارد "
+msgstr "مشکلی در پردازش پرداخت شما وجود دارد "
 
 #: payments/templates/payments/done.html:3
 msgid "Payment successful"
-msgstr "پرداخت با موفقیت انجام شد "
+msgstr "پرداخت موفق "
 
 #: payments/templates/payments/done.html:5
 msgid "Your payment was successful"
-msgstr "پرداخت شما موفق بود "
+msgstr "پرداخت شما موفقیت آمیز بود "
 
 #: payments/templates/payments/done.html:6
 msgid "Your payment has been processed successfully"
-msgstr "پرداخت شما با موفقیت انجام شده‌است"
+msgstr "پرداخت شما با موفقیت انجام شده است "
 
 #: payments/templates/payments/process.html:4
 msgid "Pay by creadit card"
-msgstr "پرداخت با کارت اعتباری"
+msgstr "پرداخت با کارت اعتباری "
 
 #: payments/templates/payments/process.html:7
 msgid "Pay by credit card"
-msgstr "پرداخت با کارت اعتباری"
+msgstr "پرداخت با کارت اعتباری "
 
 #: payments/templates/payments/process.html:10
 msgid "Card Number"
-msgstr "شماره کارت"
+msgstr "شماره کارت "
 
 #: payments/templates/payments/process.html:16
 msgid "Expiration Date"
-msgstr "تارخ انقضاء"
+msgstr "تاریخ انقضاء"
 
 #: shop/templates/shop/base.html:9
 msgid " My shop"
@@ -156,15 +172,15 @@ msgstr "فروشگاه من "
 msgid "My shop"
 msgstr "فروشگاه من "
 
-#: shop/templates/shop/base.html:26
+#: shop/templates/shop/base.html:27
 msgid "Language"
 msgstr "زبان "
 
-#: shop/templates/shop/base.html:43
+#: shop/templates/shop/base.html:45
 msgid "Your cart"
 msgstr "سبد خرید شما "
 
-#: shop/templates/shop/base.html:45
+#: shop/templates/shop/base.html:47
 #, python-format
 msgid ""
 "\n"
@@ -174,16 +190,19 @@ msgid_plural ""
 "  \n"
 "                               %(items)s items, $%(total)s\n"
 "                             "
-msgstr[0] "آیتم "
-msgstr[1] "آیتم ها "
+msgstr[0] "%(items)ها آیتم , $%(total)ها"
+msgstr[1] ""
+"%(items)s item, $%(total)s\n"
+"\n"
+"%(items)ها ایتم ها , $%(total)ها "
 
-#: shop/templates/shop/base.html:52
+#: shop/templates/shop/base.html:54
 msgid "Your cart is empty."
-msgstr "سبد خرید شما خالیست ."
+msgstr "سبد خرید شما خالی می باشد "
 
 #: shop/templates/shop/product/detail.html:20
 msgid "Add to cart"
-msgstr "اضافه به سبد خرید "
+msgstr "اضافه کردن به سبد "
 
 #: shop/templates/shop/product/list.html:8
 #: shop/templates/shop/product/list.html:30

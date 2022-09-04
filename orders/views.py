@@ -16,6 +16,34 @@ from reportlab.lib.pagesizes import letter
 #from django .conf import settings
 #from django.template.loader import render_to_string
 #import weasyprint
+  
+def order_create(request):
+  cart = Cart(request)
+  if request.method == 'POST' :
+    form = OrderCreateForm(request.POST)
+    if form.is_valid():
+      order = form.save(commit=False)
+      if cart.coupon:
+        order.coupon = cart.coupon
+        order.discount = cart.coupon.discount
+      order.save() 
+      for item in cart:
+        OrderItem.objects.create(order=order,
+                                 product=item['product'],price=item['price'],quantity=item['quantity'])
+      
+      # clear the cart
+      cart.clear()
+      # launch asynchronous task
+      order_created.delay(order.id)
+      # set the order in the session
+      request.session['order_id'] = order.id
+      # redirect for payment
+      return redirect(reverse('payments:go-to-gateways'))
+      # return render(request, 'orders/order/created.html',{'order':order})
+  else:
+    form = OrderCreateForm()
+  return render(request,
+                'orders/order/create.html',{'cart': cart, 'form': form})  
 
 #generate pdf file 
 def admin_order_pdf(request,order_id):
@@ -49,37 +77,8 @@ def admin_order_pdf(request,order_id):
   buf.seek(0)
   
   #return somethings 
-  return FileResponse(buf,as_attachment=True,filename='admin_order_pdf')
-  
-    
-def order_create(request):
-  cart = Cart(request)
-  if request.method == 'POST' :
-    form = OrderCreateForm(request.POST)
-    if form.is_valid():
-      order = form.save(commit=False)
-      if cart.coupon:
-        order.coupon = cart.coupon
-        order.discount = cart.coupon.discount
-      order.save() 
-      for item in cart:
-        OrderItem.objects.create(order=order,
-                                 product=item['product'],price=item['price'],quantity=item['quantity'])
-      
-      # clear the cart
-      cart.clear()
-      # launch asynchronous task
-      order_created.delay(order.id)
-      # set the order in the session
-      request.session['order_id'] = order.id
-      # redirect for payment
-      return redirect(reverse('payments:go-to-gateways'))
-      # return render(request, 'orders/order/created.html',{'order':order})
-  else:
-    form = OrderCreateForm()
-  return render(request,
-                'orders/order/create.html',{'cart': cart, 'form': form})  
-  
+  return FileResponse(buf,as_attachment=True,
+                      filename='admin_order_pdf')  
 @staff_member_required
 def admin_order_detail(request, order_id):
   order = get_object_or_404(Order, id=order_id)

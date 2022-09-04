@@ -29,6 +29,7 @@ services:
       - POSTGRES_PASSWORD=postgres
     depends_on:  
       - db
+    
 
   rabbit:
     restart: unless-stopped
@@ -44,6 +45,13 @@ services:
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq 
 
+  redis:
+    container_name: 'redis'
+    image: 'redis:alpine'
+    hostname: redis
+    command: redis-server
+    #volumes: - redisdata:/data
+
   celery:
     container_name: celery
     build:
@@ -53,6 +61,7 @@ services:
       - .:/test_celery 
     depends_on:
       - rabbit
+     
       
       
     #environment:
@@ -62,6 +71,7 @@ services:
 volumes:
   db_data:
   rabbitmq_data:
+  
 
 
 

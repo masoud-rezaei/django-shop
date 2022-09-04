@@ -122,9 +122,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
-LANGUAGE= (
+LANGUAGES= (
     ('en', _('English')),
      ('fa', _('Farsi')),
 )
@@ -135,8 +135,8 @@ PARLER_LANGUAGES = {
         {'code': 'fa'},
     ),
     'default' : {
-        'fallback':'en',
-        'hide_untranslated':False,
+        'fallback':['en'],
+        'hide_untranslated':True,
     } 
 }
 
@@ -154,7 +154,7 @@ LOCALE_PATHS = (
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -182,6 +182,12 @@ RABBITMQ = {
 '''
 CELERY_BROKER_URL='amqp://celeryuser:celery@rabbit:5672/celeryvhost'
 #CELERY_BROKER_URL = f"{RABBITMQ['PROTOCOL']}://{RABBITMQ['USER']}: {RABBITMQ['PASSWORD']}@{RABBITMQ['HOST']}:{RABBITMQ['PORT']}"
+
+#redis 
+REDIS_HOST =  os.environ.get('REDIS_PORT_6379_TCP_ADDR', 'redis')
+REDIS_PORT = 6379
+REDIS_DB = 1
+
 #bank 
 AZ_IRANIAN_BANK_GATEWAYS = {
    'GATEWAYS': {       

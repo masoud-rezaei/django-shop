@@ -11,3 +11,4 @@ amqp
 django-rosetta 
 django-parler
 django-localflavor
+redis
