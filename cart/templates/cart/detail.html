@@ -7,10 +7,13 @@
 {% endblock title %}
 
 {% block content %}
+
+<main class="container my-4" id="cartList">
+    <!-- Featured Products -->
     <h1>{% trans 'Your shopping cart' %}</h1>
-    <table class="cart">
-        <thead>
-            <tr>
+    <table class="table table-bordered">
+        <thead class="row">
+            <tr class="col-md-4 col-sm-6">
                 <th>{% trans "Image" %}</th>
                 <th>{% trans "Product" %}</th>
                 <th>{% trans "Quantity" %}</th>
@@ -74,7 +77,6 @@
             </tr>
         </tbody>
     </table>
-
     {% if recommended_products %}
         <div class="recommendations cart">
             <h3>{% trans "People who bought this also bought" %}</h3>
@@ -105,4 +107,5 @@
             {% trans 'Checkout' %}
         </a>
     </p>
+</main>    
 {% endblock content %}

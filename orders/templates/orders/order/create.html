@@ -4,34 +4,43 @@
     {% trans 'Checkout' %}
 {% endblock title %}
 {% block content %}
-    <h1>{% trans 'Checkout' %}</h1>
-    <div class="order-info">
-        <h3>{% trans 'Your order' %}</h3>
-        <ul>
-            {% for item in cart %}
-                <li>
-                    {{ item.quantity }}x {{ item.product.name }}
-                    <span>${{ item.total_price|floatformat:2 }}</span>
-                </li>
-            {% endfor %}
-            {% if cart.coupon %}
-                <li>
-                    {% blocktrans with code=cart.coupon.code discount=cart.coupon.discount %}
+    <main class="container my-4" id="cartList">
+        <!-- Featured Products -->
+        <div class="row">
+            <div class="col-md-9">
+                <h1 class="my-4 border-bottom pb-1">{% trans 'Checkout' %}</h1>
+                <div class="order-info"></div>
+                <h3>{% trans 'Your order' %}</h3>
+                <ul class="mb-4">
+                    {% for item in cart %}
+                        <li class="display-6">
+                            {{ item.quantity }}x {{ item.product.name }}
+                            <span>${{ item.total_price|floatformat:2 }}</span>
+                        </li>
+                    {% endfor %}
+                    {% if cart.coupon %}
+                        <li>
+                            {% blocktrans with code=cart.coupon.code discount=cart.coupon.discount %}
                          "{{ code }}"  ({{ discount }}% off)
                          {% endblocktrans %}
-                    <span class= "neg">- ${{ cart.get_discount|floatformat:2 }}</span>
-                </li>
-            {% endif %}
-        </ul>
-        <p>
-            {% trans 'Total' %}: ${{ cart.get_total_price_after_discount|floatformat:2 }}
-        </p>
+                            <span class= "neg">- ${{ cart.get_discount|floatformat:2 }}</span>
+                        </li>
+                    {% endif %}
+                </ul>
+                <p>
+                    {% trans 'Total' %}: ${{ cart.get_total_price_after_discount|floatformat:2 }}
+                </p>
+            </div>
+            <form method="post" class="order-form mb-4 my-4">
+                {{ form.as_p }}
+                <p>
+                    <input class="btn btn-sm btn-primary update-item"
+                           type="submit"
+                           value="{% trans 'Place order' %}">
+                </p>
+                {% csrf_token %}
+            </form>
+        </div>
     </div>
-    <form method="post" class="order-form">
-        {{ form.as_p }}
-        <p>
-            <input type="submit" value="{% trans 'Place order' %}">
-        </p>
-        {% csrf_token %}
-    </form>
+</main>
 {% endblock content %}

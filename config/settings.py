@@ -68,7 +68,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],  # str(BASE_DIR.joinpath('templates'))
+        'DIRS': [],#  str(BASE_DIR.joinpath('templates'))
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,25 +122,24 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en'
-
 LANGUAGES= (
+    ('fa', _('Persian')),
     ('en', _('English')),
-     ('fa', _('Farsi')),
 )
+LANGUAGE_CODE = 'fa'
 
 PARLER_LANGUAGES = {
     None: (
-        {'code': 'en'},
         {'code': 'fa'},
+        {'code': 'en'},
     ),
     'default' : {
-        'fallback':['en'],
+        'fallback':['fa'],
         'hide_untranslated':True,
     } 
 }
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tehran'
 
 USE_I18N = True
 
@@ -156,6 +155,7 @@ LOCALE_PATHS = (
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -165,8 +165,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDAI_ROOT = os.path.join(BASE_DIR, 'media/')
 
-# id cart sessions
 
+# id cart sessions
 CART_SESSION_ID = 'cart'
 #
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -188,11 +188,13 @@ REDIS_HOST =  os.environ.get('REDIS_PORT_6379_TCP_ADDR', 'redis')
 REDIS_PORT = 6379
 REDIS_DB = 1
 
+#redirect
+LOGIN_REDIRECT_URL='home'
 #bank 
 AZ_IRANIAN_BANK_GATEWAYS = {
    'GATEWAYS': {       
        'IDPAY': {
-           'MERCHANT_CODE': '995158df-0589-44e3-96c8-18b60d7e8655',
+           'MERCHANT_CODE': '01ee0d8f-c36b-4bc5-91a7-a437a3b9aa6f',   #ec42369f-0a08-4896-8349-56c525656892
            'METHOD': 'POST',  # GET or POST
            'X_SANDBOX': 1,  # 0 disable, 1 active
        },

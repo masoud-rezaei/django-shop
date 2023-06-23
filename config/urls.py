@@ -24,6 +24,7 @@ from django.utils.translation import gettext_lazy as _
 
 urlpatterns = i18n_patterns(
     path(_('admin/'), admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('bankgateways/', az_bank_gateways_urls()),
     path('callback-gateways/',callback_gateway_view ,name='callback-gateways'),
     path(_('cart/'), include('cart.urls', namespace='cart')),

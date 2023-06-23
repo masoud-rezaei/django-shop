@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-04 11:43+0000\n"
+"POT-Creation-Date: 2022-11-23 23:27+0000\n"
 "PO-Revision-Date: 2022-09-04 11:43+0000\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -97,12 +97,12 @@ msgid "Checkout"
 msgstr "Checkout"
 
 #: config/settings.py:128
-msgid "English"
-msgstr "English"
-
-#: config/settings.py:129
 msgid "Farsi"
 msgstr "Farsi"
+
+#: config/settings.py:129
+msgid "English"
+msgstr "English"
 
 #: config/urls.py:26
 msgid "admin/"
@@ -168,36 +168,48 @@ msgstr "Expiration Date"
 msgid " My shop"
 msgstr "My shop"
 
-#: shop/templates/shop/base.html:21
+#: shop/templates/shop/base.html:22
 msgid "My shop"
 msgstr "My shop"
 
-#: shop/templates/shop/base.html:27
+#: shop/templates/shop/base.html:49
 msgid "Language"
 msgstr "Language"
 
-#: shop/templates/shop/base.html:45
-msgid "Your cart"
-msgstr "Your cart"
+#: shop/templates/shop/base.html:69
+#, fuzzy
+#| msgid "cart/"
+msgid "cart"
+msgstr "cart/"
 
-#: shop/templates/shop/base.html:47
-#, python-format
+#: shop/templates/shop/base.html:80
+#, fuzzy, python-format
+#| msgid ""
+#| "\n"
+#| "                               %(items)s item, $%(total)s\n"
+#| "                             "
+#| msgid_plural ""
+#| "  \n"
+#| "                               %(items)s items, $%(total)s\n"
+#| "                             "
 msgid ""
 "\n"
-"                               %(items)s item, $%(total)s\n"
-"                             "
+"                                               %(items)s item, $%(total)s\n"
+"                                             "
 msgid_plural ""
 "  \n"
-"                               %(items)s items, $%(total)s\n"
-"                             "
+"                                               %(items)s items, $%(total)s\n"
+"                                             "
 msgstr[0] "%(items)s item, $%(total)s"
 msgstr[1] ""
 "%(items)s item, $%(total)s\n"
 "\n"
 "%(items)s items, $%(total)s"
 
-#: shop/templates/shop/base.html:54
-msgid "Your cart is empty."
+#: shop/templates/shop/base.html:88
+#, fuzzy
+#| msgid "Your cart is empty."
+msgid "Your cart is empty"
 msgstr "Your cart is empty."
 
 #: shop/templates/shop/product/detail.html:20
@@ -209,6 +221,13 @@ msgstr "Add to cart"
 msgid "Products"
 msgstr "Products"
 
-#: shop/templates/shop/product/list.html:13
+#: shop/templates/shop/product/list.html:14
 msgid "Categories"
 msgstr "Categories"
+
+#: shop/templates/shop/product/list.html:17
+msgid "All"
+msgstr ""
+
+#~ msgid "Your cart"
+#~ msgstr "Your cart"

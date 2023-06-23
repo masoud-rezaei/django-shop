@@ -4,10 +4,12 @@
     {% trans ' Thank you' %}
 {% endblock title %}
 {% block content %}
+<main class="container my-4">
     <h1>{% trans 'Thank you' %}</h1>
     {% blocktrans with order_id=order.id %}
      <p>
         Your order has been successfully completed. Your order number is <strong>{{ order_id }}</strong> .
     </p>
 {% endblocktrans %}
+</main>
 {% endblock content %}

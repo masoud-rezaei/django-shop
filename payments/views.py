@@ -33,7 +33,7 @@ def go_to_gateway_view(request):
         return bank.redirect_gateway()
     except AZBankGatewaysException as e:
         logging.critical(e)
-        # TODO: redirect to failed page.
+        #TODO: redirect to failed page.
         raise e
     
 def callback_gateway_view(request):

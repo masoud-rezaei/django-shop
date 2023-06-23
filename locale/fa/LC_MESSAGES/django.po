@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-04 11:43+0000\n"
+"POT-Creation-Date: 2022-11-23 23:27+0000\n"
 "PO-Revision-Date: 2022-09-04 11:44+0000\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -97,12 +97,12 @@ msgid "Checkout"
 msgstr "یررسی "
 
 #: config/settings.py:128
-msgid "English"
-msgstr "انگلیسی "
-
-#: config/settings.py:129
 msgid "Farsi"
 msgstr "فارسی "
+
+#: config/settings.py:129
+msgid "English"
+msgstr "انگلیسی "
 
 #: config/urls.py:26
 msgid "admin/"
@@ -168,36 +168,48 @@ msgstr "تاریخ انقضاء"
 msgid " My shop"
 msgstr "فروشگاه من "
 
-#: shop/templates/shop/base.html:21
+#: shop/templates/shop/base.html:22
 msgid "My shop"
 msgstr "فروشگاه من "
 
-#: shop/templates/shop/base.html:27
+#: shop/templates/shop/base.html:49
 msgid "Language"
 msgstr "زبان "
 
-#: shop/templates/shop/base.html:45
-msgid "Your cart"
-msgstr "سبد خرید شما "
+#: shop/templates/shop/base.html:69
+#, fuzzy
+#| msgid "cart/"
+msgid "cart"
+msgstr "/سبد "
 
-#: shop/templates/shop/base.html:47
-#, python-format
+#: shop/templates/shop/base.html:80
+#, fuzzy, python-format
+#| msgid ""
+#| "\n"
+#| "                               %(items)s item, $%(total)s\n"
+#| "                             "
+#| msgid_plural ""
+#| "  \n"
+#| "                               %(items)s items, $%(total)s\n"
+#| "                             "
 msgid ""
 "\n"
-"                               %(items)s item, $%(total)s\n"
-"                             "
+"                                               %(items)s item, $%(total)s\n"
+"                                             "
 msgid_plural ""
 "  \n"
-"                               %(items)s items, $%(total)s\n"
-"                             "
+"                                               %(items)s items, $%(total)s\n"
+"                                             "
 msgstr[0] "%(items)ها آیتم , $%(total)ها"
 msgstr[1] ""
 "%(items)s item, $%(total)s\n"
 "\n"
 "%(items)ها ایتم ها , $%(total)ها "
 
-#: shop/templates/shop/base.html:54
-msgid "Your cart is empty."
+#: shop/templates/shop/base.html:88
+#, fuzzy
+#| msgid "Your cart is empty."
+msgid "Your cart is empty"
 msgstr "سبد خرید شما خالی می باشد "
 
 #: shop/templates/shop/product/detail.html:20
@@ -209,6 +221,13 @@ msgstr "اضافه کردن به سبد "
 msgid "Products"
 msgstr "محصولات "
 
-#: shop/templates/shop/product/list.html:13
+#: shop/templates/shop/product/list.html:14
 msgid "Categories"
 msgstr "دسته بندی "
+
+#: shop/templates/shop/product/list.html:17
+msgid "All"
+msgstr ""
+
+#~ msgid "Your cart"
+#~ msgstr "سبد خرید شما "
